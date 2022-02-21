@@ -1,0 +1,13 @@
+# what language travis expect 
+language: python
+python: 
+  - "3.6"
+
+services: 
+  - docker
+
+# before script
+before_script: pip install docker-compose
+
+script:
+  - docker-compose run app sh -c "python manage.py test && flake8"
